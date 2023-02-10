@@ -1,0 +1,263 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  background: red;
+  min-height: 100vh;
+  overflow: hidden;
+}
+section .bannerImages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+section .bannerImages img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+}
+section .bannerImages img.active {
+  opacity: 1;
+}
+section .container {
+  position: relative;
+  padding: 0 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  z-index: 3;
+}
+section .container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.05);
+}
+section .container .logo {
+  width: 80px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+section .container .menuIcon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 6;
+}
+section .container .menuIcon.active {
+  background: black;
+}
+section .container .menuIcon::before {
+  position: absolute;
+  top: 13px;
+  left: 4px;
+  content: "";
+  background-color: black;
+  height: 4px;
+  width: 80%;
+  transition: 0.2s;
+}
+section .container .menuIcon::after {
+  position: absolute;
+  top: 23px;
+  left: 4px;
+  content: "";
+  background-color: black;
+  height: 4px;
+  width: 80%;
+  box-shadow: 0 10px 0 black;
+  transition: 0.2s;
+}
+section .container .menuIcon.active::before {
+  background: white;
+  transform: translateY(10px) rotate(45deg);
+}
+section .container .menuIcon.active::after {
+  background: white;
+  transform: rotate(-45deg);
+  box-shadow: none;
+}
+section .container header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+  transform: translateX(100%);
+  transition: 0.25s;
+  z-index: 5;
+}
+section .container header.active {
+  transform: translateX(0%);
+}
+section .container header ul {
+  background-color: #ebf2f7;
+  background-image: linear-gradient(160deg, #ebf2f7 0%, #b1b1b1 100%);
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+section .container header ul li {
+  list-style: none;
+  margin: 0 20px;
+  text-align: center;
+  transition: 0.25s;
+}
+section .container header ul li:hover {
+  background-color: rgb(157, 150, 150);
+  width: 100%;
+}
+section .container header ul li a {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+  height: 150px;
+  width: 100%;
+  transition: 0.2s;
+}
+section .container header ul li a:hover {
+  letter-spacing: 8px;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 100;
+}
+section .container .content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 370px;
+  height: auto;
+}
+section .container .content .bannerText {
+  position: relative;
+}
+section .container .content .bannerText div {
+  display: none;
+}
+section .container .content .bannerText div.active {
+  display: initial;
+}
+section .container .content .bannerText h2 {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  margin: 20px 0px;
+}
+section .container .content .bannerText p {
+  font-size: 16px;
+  color: white;
+}
+section .controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 22%;
+  z-index: 4;
+  width: 250px;
+  height: 150px;
+  list-style: none;
+  opacity: 1;
+  transition: 0.25s;
+  cursor: pointer;
+}
+section .controls.active {
+  opacity: 0;
+}
+section .controls li {
+  text-align: center;
+  font-size: 40px;
+  height: 70px;
+  width: 70px;
+  margin: 0 10px;
+  line-height: 70px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid black;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+section .controls li:hover {
+  background-color: rgb(88, 18, 74);
+  color: white;
+  font-size: 70px;
+  border: none;
+}
+section .controls li:nth-child(1):hover {
+  transform: translateX(-10px);
+}
+section .controls li:hover:nth-child(2) {
+  transform: translateX(10px);
+}
+
+@media (min-width: 480px) {
+  section .container::before {
+    width: 100%;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  section .container .content {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(250, 250, 250, 0.539);
+  }
+  section .container .content .bannerText div h2 {
+    font-size: 50px;
+    color: white;
+  }
+  section .container .content .bannerText div p {
+    font-size: 20px;
+    color: white;
+  }
+}
+@media (min-width: 768px) {
+  section .container::before {
+    width: 100%;
+  }
+  section .controls {
+    left: 100px;
+  }
+}/*# sourceMappingURL=style.css.map */
