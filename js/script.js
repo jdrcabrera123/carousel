@@ -34,6 +34,6 @@ function nextSlideText() {
 }
 function prevSlideText() {
     slideText[indexText].classList.remove('active');
-    indexText = (indexTex - 1 + indexText.length) % slideText.length;
+    indexText = (indexText - 1 + slideText.length) % slideText.length;
     slideText[index].classList.add('active');
 }
